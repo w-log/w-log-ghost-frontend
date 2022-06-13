@@ -1,3 +1,7 @@
-import Link from "next/link";
+import Link from 'next/link';
 
-export const HeaderTitle = () => <h1 className="text-3xl font-dm-sans-bold dark:text-white"><Link href={"/"} >W Log</Link></h1>
+export const HeaderTitle = () => (
+    <h1 className="text-3xl font-dm-sans-bold text-primary-2 dark:text-sencondary">
+        <Link href={'/'}>W Log</Link>
+    </h1>
+);
