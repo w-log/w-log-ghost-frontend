@@ -1,17 +1,16 @@
 {
-  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
-  "editor.quickSuggestions": {
-    "strings": true
-  },
-  "files.associations": {
-    "*.css": "tailwindcss"
-  },
-  "tailwindCSS.files.exclude": [
-    "**/.git/**",
-    "**/node_modules/**",
-    "**/.hg/**"
-  ],
-  "tailwindCSS.includeLanguages": {
-    "plaintext": "html"
-  }
+    "editor.quickSuggestions": {
+        "strings": true
+    },
+    "files.associations": {
+        "*.css": "tailwindcss"
+    },
+    "tailwindCSS.files.exclude": [
+        "**/.git/**",
+        "**/node_modules/**",
+        "**/.hg/**"
+    ],
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html"
+    }
 }

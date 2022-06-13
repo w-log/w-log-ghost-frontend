@@ -3,14 +3,18 @@
 @tailwind utilities;
 
 @import './font.css';
+@import './home.css';
 
 @layer base {
-  html,body {
-    @apply antialiased;
-  }
+    html,
+    body {
+        @apply antialiased;
+    }
 }
 
-html, body, #__next {
+html,
+body,
+#__next {
     width: 100%;
     height: 100%;
 }
@@ -19,3 +23,6 @@ html, body, #__next {
     overflow: auto;
 }
 
+.fp-watermark {
+    display: none;
+}
