@@ -4,6 +4,7 @@
 
 @import './font.css';
 @import './home.css';
+@import './icon.css';
 
 @layer base {
     html,

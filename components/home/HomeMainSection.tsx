@@ -1,6 +1,8 @@
-import Link from 'next/link';
 import React from 'react';
-import { Container } from '../layout/Container';
+import Link from 'next/link';
+
+import { Github, Instagram, Mail } from '@components/icons';
+import { Container } from '@components/layout/Container';
 
 interface Props {
     title: string;
@@ -21,22 +23,25 @@ export const HomeMainSection: React.FC<Props> = ({
                 </h2>
                 <p className="text-base font-medium mt-1 mb-9">{description}</p>
                 <ul className="inline-flex space-x-4">
-                    <li>
-                        <Link
-                            href={'mailto:taewoong431@gmail.com'}
-                            target="_blank"
-                        >
-                            메일
+                    <li className="inline-flex justify-center items-center">
+                        <Link href={'mailto:taewoong431@gmail.com'}>
+                            <a target="_blank">
+                                <Mail />
+                            </a>
                         </Link>
                     </li>
-                    <li>
-                        <Link href={'https://github.com/w-log'} target="_blank">
-                            깃허브
+                    <li className="inline-flex justify-center items-center">
+                        <Link href={'https://github.com/w-log'}>
+                            <a target="_blank">
+                                <Github />
+                            </a>
                         </Link>
                     </li>
-                    <li>
+                    <li className="inline-flex justify-center items-center">
                         <Link href={'https://instagram.com'} target="_blank">
-                            인스타
+                            <a target="_blank">
+                                <Instagram />
+                            </a>
                         </Link>
                     </li>
                 </ul>
