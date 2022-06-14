@@ -21,7 +21,7 @@ export const HomeMainSection: React.FC<Props> = ({
                 <h2 className="font-bold text-4xl" aria-label={title}>
                     {titleContent}
                 </h2>
-                <p className="text-base font-medium mt-1 mb-9">{description}</p>
+                <p className="text-base font-medium mt-2 mb-7">{description}</p>
                 <ul className="inline-flex space-x-4">
                     <li className="inline-flex justify-center items-center">
                         <Link href={'mailto:taewoong431@gmail.com'}>

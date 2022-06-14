@@ -1,11 +1,16 @@
 import type { NextPage } from 'next';
 import Head from 'next/head';
-// import Image from "next/image";
+import Link from 'next/link';
 
 import { Header } from '@/components/layout/Header';
 import { Main } from '@/components/layout/Main';
+
+import { Card } from '@/components/Card';
+import { ArrowRight } from '@/components/icons';
+
 import { HomeMainSection } from '@/components/home/HomeMainSection';
 import { HomeTitleContent } from '@/components/home/HomeTitle';
+import { HomeContent } from '@/components/home/HomeContent';
 
 const Home: NextPage = () => {
     return (
@@ -25,6 +30,68 @@ const Home: NextPage = () => {
                     titleContent={<HomeTitleContent text="I am Alive ✌🏼" />}
                     description="안녕하세요 서울에서 프론트 엔지니어로 근무중인 김태웅입니다."
                 />
+                <HomeContent title="Recent Posts">
+                    <Card className="flex-1 p-3.5">
+                        <h3 className="text-lg font-bold mb-3">
+                            {'Strapi Serverless 구축하기'}
+                        </h3>
+                        <p className="text-xs text-ellipsis break-words overflow-hidden max-h-8 mb-2">
+                            wlog를 개발과정중에 문득 ssg방식으로 구축할건데
+                            서버가 굳이 필요할까라는 결론을 내리게 되었고
+                            serverless serverless... serverless...
+                        </p>
+                        <ul className="flex justify-between items-center">
+                            <li>
+                                <ul className="inline-flex space-x-1">
+                                    <li>
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                            태그 1
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                            태그 2
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="text-xs">2022.06.13</li>
+                        </ul>
+                    </Card>
+                    <Card className="flex-1 p-3.5">
+                        <h3 className="text-lg font-bold mb-3">
+                            {'Strapi Serverless 구축하기'}
+                        </h3>
+                        <p className="text-xs text-ellipsis break-words overflow-hidden max-h-8 mb-2">
+                            wlog를 개발과정중에 문득 ssg방식으로 구축할건데
+                            서버가 굳이 필요할까라는 결론을 내리게 되었고
+                            serverless serverless... serverless...
+                        </p>
+                        <ul className="flex justify-between items-center">
+                            <li>
+                                <ul className="inline-flex space-x-1">
+                                    <li>
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                            태그 1
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                            태그 2
+                                        </span>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li className="text-xs">2022.06.13</li>
+                        </ul>
+                    </Card>
+                    <Link href={'/'}>
+                        <a className="inline-flex font-medium items-center dark:text-sencondary">
+                            {'View More'}{' '}
+                            <ArrowRight className="ml-0.5 w-4 h-4" />
+                        </a>
+                    </Link>
+                </HomeContent>
             </Main>
         </>
     );
