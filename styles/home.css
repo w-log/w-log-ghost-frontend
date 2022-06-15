@@ -1,3 +1,7 @@
 .home-main {
     margin-top: 100vh;
 }
+
+.home-content + .home-content {
+    @apply mt-14;
+}

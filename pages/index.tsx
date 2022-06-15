@@ -11,6 +11,8 @@ import { ArrowRight } from '@/components/icons';
 import { HomeMainSection } from '@/components/home/HomeMainSection';
 import { HomeTitleContent } from '@/components/home/HomeTitle';
 import { HomeContent } from '@/components/home/HomeContent';
+import { HomeImage } from '@/components/home/HomeImage';
+import { Footer } from '@/components/layout/Footer';
 
 const Home: NextPage = () => {
     return (
@@ -24,7 +26,7 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Header />
-            <Main className="home-main">
+            <Main className="home-main flex flex-col">
                 <HomeMainSection
                     title="I am Alive ✌🏼"
                     titleContent={<HomeTitleContent text="I am Alive ✌🏼" />}
@@ -87,12 +89,62 @@ const Home: NextPage = () => {
                     </Card>
                     <Link href={'/'}>
                         <a className="inline-flex font-medium items-center dark:text-sencondary">
-                            {'View More'}{' '}
+                            {'View More'}
                             <ArrowRight className="ml-0.5 w-4 h-4" />
                         </a>
                     </Link>
                 </HomeContent>
+                <HomeContent title="Work Experience">
+                    <Card className="px-6 py-4">
+                        <h3 className="text-lg font-bold">
+                            Gopizza Future Lab
+                        </h3>
+                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                            <li className="pr-1">Front-end Developer</li>
+                            <li className="pl-1">2021.10 - current</li>
+                        </ul>
+                    </Card>
+                    <Card className="px-6 py-4">
+                        <h3 className="text-lg font-bold">Weperson</h3>
+                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                            <li className="pr-1">Front-end Developer</li>
+                            <li className="pl-1">2021.10 - current</li>
+                        </ul>
+                    </Card>
+                    <Card className="px-6 py-4">
+                        <h3 className="text-lg font-bold">
+                            IICOMBINED IT Planning
+                        </h3>
+                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                            <li className="pr-1">Web Developer</li>
+                            <li className="pl-1">2019.03 - 2020.12</li>
+                        </ul>
+                    </Card>
+                    <Card className="px-6 py-4">
+                        <h3 className="text-lg font-bold">Studio HEYDEY</h3>
+                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                            <li className="pr-1">Web Developer</li>
+                            <li className="pl-1">2017.04 - 2019.03</li>
+                        </ul>
+                    </Card>
+                </HomeContent>
+                <HomeContent title="About Me">
+                    <p className="whitespace-pre-wrap font-medium text-primary-1 dark:text-sencondary">{`I’m currently a 4th year computer science major at CSUF.  My passion is to create beautiful products and experiences using web technologies.
+
+I’m primarily a creative, and I first used code to help elevate the way I express myself.  Now, I use code to develop things on the web that help bring people closer together.
+
+As I start to enter a full-time career in tech, I plan to shift my focus onto building apps and services that help people improve their relationships with tech.
+
+When I’m not doing anything related to coding or designing, I’m spending time with friends and family, trying to survive college (lmao), playing my guitar, or making YouTube videos.`}</p>
+                </HomeContent>
             </Main>
+            <HomeImage
+                src={
+                    'https://www.prog-ocean.org/wp-content/uploads/2018/07/matt-howard-248418-unsplash_small-1920x900.jpg'
+                }
+                layout="fill"
+            />
+            <Footer />
         </>
     );
 };
