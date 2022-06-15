@@ -37,21 +37,21 @@ const Home: NextPage = () => {
                         <h3 className="text-lg font-bold mb-3">
                             {'Strapi Serverless 구축하기'}
                         </h3>
-                        <p className="text-xs text-ellipsis break-words overflow-hidden max-h-8 mb-2">
+                        <p className="text-xs text-ellipsis break-words overflow-hidden h-8 mb-2">
                             wlog를 개발과정중에 문득 ssg방식으로 구축할건데
                             서버가 굳이 필요할까라는 결론을 내리게 되었고
                             serverless serverless... serverless...
                         </p>
                         <ul className="flex justify-between items-center">
                             <li>
-                                <ul className="inline-flex space-x-1">
+                                <ul className="inline-flex space-x-2">
                                     <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
                                             태그 1
                                         </span>
                                     </li>
                                     <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
                                             태그 2
                                         </span>
                                     </li>
@@ -64,21 +64,21 @@ const Home: NextPage = () => {
                         <h3 className="text-lg font-bold mb-3">
                             {'Strapi Serverless 구축하기'}
                         </h3>
-                        <p className="text-xs text-ellipsis break-words overflow-hidden max-h-8 mb-2">
+                        <p className="text-xs text-ellipsis break-words overflow-hidden h-8 mb-2">
                             wlog를 개발과정중에 문득 ssg방식으로 구축할건데
                             서버가 굳이 필요할까라는 결론을 내리게 되었고
                             serverless serverless... serverless...
                         </p>
                         <ul className="flex justify-between items-center">
                             <li>
-                                <ul className="inline-flex space-x-1">
+                                <ul className="inline-flex space-x-2">
                                     <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
                                             태그 1
                                         </span>
                                     </li>
                                     <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 dark:bg-primary-1 dark:text-sencondary">
+                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
                                             태그 2
                                         </span>
                                     </li>
@@ -99,37 +99,37 @@ const Home: NextPage = () => {
                         <h3 className="text-lg font-bold">
                             Gopizza Future Lab
                         </h3>
-                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
                             <li className="pr-1">Front-end Developer</li>
-                            <li className="pl-1">2021.10 - current</li>
+                            <li className="pl-1"> 2021.10 - current</li>
                         </ul>
                     </Card>
                     <Card className="px-6 py-4">
                         <h3 className="text-lg font-bold">Weperson</h3>
-                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
                             <li className="pr-1">Front-end Developer</li>
-                            <li className="pl-1">2021.10 - current</li>
+                            <li className="pl-1"> 2021.10 - current</li>
                         </ul>
                     </Card>
                     <Card className="px-6 py-4">
                         <h3 className="text-lg font-bold">
                             IICOMBINED IT Planning
                         </h3>
-                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
                             <li className="pr-1">Web Developer</li>
-                            <li className="pl-1">2019.03 - 2020.12</li>
+                            <li className="pl-1"> 2019.03 - 2020.12</li>
                         </ul>
                     </Card>
                     <Card className="px-6 py-4">
                         <h3 className="text-lg font-bold">Studio HEYDEY</h3>
-                        <ul className="divide-x divide-solid leading-none  divide-primary-2 inline-flex font-medium text-xs">
+                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
                             <li className="pr-1">Web Developer</li>
-                            <li className="pl-1">2017.04 - 2019.03</li>
+                            <li className="pl-1"> 2017.04 - 2019.03</li>
                         </ul>
                     </Card>
                 </HomeContent>
                 <HomeContent title="About Me">
-                    <p className="whitespace-pre-wrap font-medium text-primary-1 dark:text-sencondary">{`I’m currently a 4th year computer science major at CSUF.  My passion is to create beautiful products and experiences using web technologies.
+                    <p className="whitespace-pre-wrap font-medium text-primary-2 dark:text-sencondary">{`I’m currently a 4th year computer science major at CSUF.  My passion is to create beautiful products and experiences using web technologies.
 
 I’m primarily a creative, and I first used code to help elevate the way I express myself.  Now, I use code to develop things on the web that help bring people closer together.
 

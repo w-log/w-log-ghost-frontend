@@ -3,7 +3,7 @@ import { Container } from '@components/layout/Container';
 
 export const HomeImage: React.FC<ImageProps> = (props) => (
     <Container>
-        <div className="relative w-full aspect-video my-12">
+        <div className="relative w-full pb-[50%] my-12">
             <Image {...props} />
         </div>
     </Container>

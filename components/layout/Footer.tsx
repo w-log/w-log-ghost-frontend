@@ -1,11 +1,12 @@
 import Link from 'next/link';
 
 import { Github, Instagram, Mail } from '@components/icons';
+
 import { Container } from './Container';
 
 export const Footer = () => (
     <footer>
-        <Container className="flex px-12 relative pb-12 font-medium justify-between dark:text-sencondary text-primary-1">
+        <Container className="flex px-12 relative pb-12 font-bold justify-between dark:text-sencondary text-primary-2">
             <p id="copyright">© {new Date().getFullYear()} W Log</p>
             <ul className="inline-flex space-x-4">
                 <li className="inline-flex justify-center items-center">
