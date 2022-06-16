@@ -2,17 +2,19 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { Header } from '@/components/layout/Header';
-import { Main } from '@/components/layout/Main';
+import { Header } from '@components/layout/Header';
+import { Main } from '@components/layout/Main';
 
-import { Card } from '@/components/Card';
-import { ArrowRight } from '@/components/icons';
+import { ArrowRight } from '@components/icons';
 
-import { HomeMainSection } from '@/components/home/HomeMainSection';
-import { HomeTitleContent } from '@/components/home/HomeTitle';
-import { HomeContent } from '@/components/home/HomeContent';
-import { HomeImage } from '@/components/home/HomeImage';
-import { Footer } from '@/components/layout/Footer';
+import { HomeMainSection } from '@components/home/HomeMainSection';
+import { HomeTitleContent } from '@components/home/HomeTitle';
+import { HomeContent } from '@components/home/HomeContent';
+import { HomeImage } from '@components/home/HomeImage';
+import { HomePostCard } from '@components/home/HomePostCard';
+import { HomeWorkExperienceCard } from '@components/home/HomeWorkExperienceCard';
+
+import { Footer } from '@components/layout/Footer';
 
 const Home: NextPage = () => {
     return (
@@ -33,60 +35,24 @@ const Home: NextPage = () => {
                     description="안녕하세요 서울에서 프론트 엔지니어로 근무중인 김태웅입니다."
                 />
                 <HomeContent title="Recent Posts">
-                    <Card className="flex-1 p-3.5">
-                        <h3 className="text-lg font-bold mb-3">
-                            {'Strapi Serverless 구축하기'}
-                        </h3>
-                        <p className="text-xs text-ellipsis break-words overflow-hidden h-8 mb-2">
-                            wlog를 개발과정중에 문득 ssg방식으로 구축할건데
+                    <HomePostCard
+                        title="Strapi Serverless 구축하기"
+                        description="wlog를 개발과정중에 문득 ssg방식으로 구축할건데
                             서버가 굳이 필요할까라는 결론을 내리게 되었고
-                            serverless serverless... serverless...
-                        </p>
-                        <ul className="flex justify-between items-center">
-                            <li>
-                                <ul className="inline-flex space-x-2">
-                                    <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
-                                            태그 1
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
-                                            태그 2
-                                        </span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li className="text-xs">2022.06.13</li>
-                        </ul>
-                    </Card>
-                    <Card className="flex-1 p-3.5">
-                        <h3 className="text-lg font-bold mb-3">
-                            {'Strapi Serverless 구축하기'}
-                        </h3>
-                        <p className="text-xs text-ellipsis break-words overflow-hidden h-8 mb-2">
-                            wlog를 개발과정중에 문득 ssg방식으로 구축할건데
+                            serverless serverless... serverless..."
+                        tags={['태그 1', '태그 2']}
+                        href="asd"
+                        createdAt="2022.06.13"
+                    />
+                    <HomePostCard
+                        title="Strapi Serverless 구축하기"
+                        description="wlog를 개발과정중에 문득 ssg방식으로 구축할건데
                             서버가 굳이 필요할까라는 결론을 내리게 되었고
-                            serverless serverless... serverless...
-                        </p>
-                        <ul className="flex justify-between items-center">
-                            <li>
-                                <ul className="inline-flex space-x-2">
-                                    <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
-                                            태그 1
-                                        </span>
-                                    </li>
-                                    <li>
-                                        <span className="rounded-full text-xs py-0.5 px-2.5 text-primary-2 bg-white dark:bg-primary-1 dark:text-sencondary">
-                                            태그 2
-                                        </span>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li className="text-xs">2022.06.13</li>
-                        </ul>
-                    </Card>
+                            serverless serverless... serverless..."
+                        tags={['태그 1', '태그 2']}
+                        href="asd"
+                        createdAt="2022.06.13"
+                    />
                     <Link href={'/'}>
                         <a className="inline-flex font-medium items-center dark:text-sencondary">
                             {'View More'}
@@ -95,38 +61,26 @@ const Home: NextPage = () => {
                     </Link>
                 </HomeContent>
                 <HomeContent title="Work Experience">
-                    <Card className="px-6 py-4">
-                        <h3 className="text-lg font-bold">
-                            Gopizza Future Lab
-                        </h3>
-                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
-                            <li className="pr-1">Front-end Developer</li>
-                            <li className="pl-1"> 2021.10 - current</li>
-                        </ul>
-                    </Card>
-                    <Card className="px-6 py-4">
-                        <h3 className="text-lg font-bold">Weperson</h3>
-                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
-                            <li className="pr-1">Front-end Developer</li>
-                            <li className="pl-1"> 2021.10 - current</li>
-                        </ul>
-                    </Card>
-                    <Card className="px-6 py-4">
-                        <h3 className="text-lg font-bold">
-                            IICOMBINED IT Planning
-                        </h3>
-                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
-                            <li className="pr-1">Web Developer</li>
-                            <li className="pl-1"> 2019.03 - 2020.12</li>
-                        </ul>
-                    </Card>
-                    <Card className="px-6 py-4">
-                        <h3 className="text-lg font-bold">Studio HEYDEY</h3>
-                        <ul className="divide-x divide-solid leading-none  dark:divide-primary-1 divide-white inline-flex font-medium text-xs">
-                            <li className="pr-1">Web Developer</li>
-                            <li className="pl-1"> 2017.04 - 2019.03</li>
-                        </ul>
-                    </Card>
+                    <HomeWorkExperienceCard
+                        title="Gopizza Future Lab"
+                        role="Front-end Developer"
+                        workDate="2021.10 - current"
+                    />
+                    <HomeWorkExperienceCard
+                        title="Weperson"
+                        role="Front-end Developer"
+                        workDate="2021.01 - 2021.03"
+                    />
+                    <HomeWorkExperienceCard
+                        title="IICOMBINED IT Planning"
+                        role="Web Developer"
+                        workDate="2019.03 - 2020.12"
+                    />
+                    <HomeWorkExperienceCard
+                        title="Studio HEYDEY"
+                        role="Web Developer"
+                        workDate="2017.04 - 2019.03"
+                    />
                 </HomeContent>
                 <HomeContent title="About Me">
                     <p className="whitespace-pre-wrap font-medium text-primary-2 dark:text-sencondary">{`I’m currently a 4th year computer science major at CSUF.  My passion is to create beautiful products and experiences using web technologies.
