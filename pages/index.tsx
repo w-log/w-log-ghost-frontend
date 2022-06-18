@@ -2,10 +2,8 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
-import { Header } from '@components/layout/Header';
-import { Main } from '@components/layout/Main';
-
 import { ArrowRight } from '@components/icons';
+import { Container } from '@components/layout/Container';
 
 import { HomeMainSection } from '@components/home/HomeMainSection';
 import { HomeTitleContent } from '@components/home/HomeTitle';
@@ -13,8 +11,6 @@ import { HomeContent } from '@components/home/HomeContent';
 import { HomeImage } from '@components/home/HomeImage';
 import { HomePostCard } from '@components/home/HomePostCard';
 import { HomeWorkExperienceCard } from '@components/home/HomeWorkExperienceCard';
-
-import { Footer } from '@components/layout/Footer';
 
 const Home: NextPage = () => {
     return (
@@ -27,8 +23,9 @@ const Home: NextPage = () => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Header />
-            <Main className="home-main flex flex-col">
+            <Container
+                className={`home-main w-100 flex flex-col px-12 flex-column justify-between items-center`}
+            >
                 <HomeMainSection
                     title="I am Alive ✌🏼"
                     titleContent={<HomeTitleContent text="I am Alive ✌🏼" />}
@@ -54,7 +51,7 @@ const Home: NextPage = () => {
                         createdAt="2022.06.13"
                     />
                     <Link href={'/'}>
-                        <a className="inline-flex font-medium items-center dark:text-sencondary">
+                        <a className="inline-flex font-medium items-center text-primary-2 dark:text-sencondary">
                             {'View More'}
                             <ArrowRight className="ml-0.5 w-4 h-4" />
                         </a>
@@ -91,14 +88,13 @@ As I start to enter a full-time career in tech, I plan to shift my focus onto bu
 
 When I’m not doing anything related to coding or designing, I’m spending time with friends and family, trying to survive college (lmao), playing my guitar, or making YouTube videos.`}</p>
                 </HomeContent>
-            </Main>
+            </Container>
             <HomeImage
                 src={
                     'https://www.prog-ocean.org/wp-content/uploads/2018/07/matt-howard-248418-unsplash_small-1920x900.jpg'
                 }
                 layout="fill"
             />
-            <Footer />
         </>
     );
 };

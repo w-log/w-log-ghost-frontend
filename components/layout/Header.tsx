@@ -18,7 +18,6 @@ export const Header = () => {
         <header className="fixed top-0 left-0 z-20 flex w-full h-20 bg-white dark:bg-primary-1">
             <Container className="w-100 flex flex-1 px-6 flex-row justify-between items-center">
                 <HeaderTitle />
-
                 <ToggleTheme />
             </Container>
         </header>
