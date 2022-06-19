@@ -24,7 +24,7 @@ const Home: NextPage = () => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Container
-                className={`home-main w-100 flex flex-col px-12 flex-column justify-between items-center`}
+                className={`home-main w-100 flex flex-col px-8 sm:px-12 flex-column justify-between items-center`}
             >
                 <HomeMainSection
                     title="I am Alive ✌🏼"

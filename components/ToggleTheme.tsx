@@ -1,16 +1,9 @@
 import React from 'react';
 import { Sun, Moon } from '@components/icons';
-type Theme = 'dark' | 'light';
-
-const isDarkTheme =
-    localStorage.theme === 'dark' ||
-    (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches);
+type Theme = 'dark' | 'light' | '';
 
 export const ToggleTheme = () => {
-    const [theme, setTheme] = React.useState<Theme>(
-        isDarkTheme ? 'dark' : 'light'
-    );
+    const [theme, setTheme] = React.useState<Theme>('');
 
     const onToggleTheme = React.useCallback(() => {
         const doc = document.documentElement;
@@ -25,6 +18,15 @@ export const ToggleTheme = () => {
         setTheme(_theme);
         localStorage.setItem('theme', _theme === 'dark' ? _theme : '');
     }, [theme]);
+
+    React.useLayoutEffect(() => {
+        const isDarkTheme =
+            localStorage.theme === 'dark' ||
+            (!('theme' in localStorage) &&
+                window.matchMedia('(prefers-color-scheme: dark)').matches);
+
+        setTheme(isDarkTheme ? 'dark' : 'light');
+    }, []);
 
     return (
         <button

@@ -1,0 +1,10 @@
+.post-image {
+    position: relative;
+}
+
+.post-image::before {
+    content: '';
+    display: block;
+    width: 100%;
+    padding-bottom: 56.25%;
+}

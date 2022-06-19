@@ -3,18 +3,26 @@ import { OutLink } from './icons';
 
 interface Props {
     className?: string;
+    bgClass?: string;
+    spaceClass?: string;
     href?: string;
     children?: React.ReactNode;
 }
 
-export const Card: React.FC<Props> = ({ className, href, children }) => {
+export const Card: React.FC<Props> = ({
+    className,
+    bgClass,
+    href,
+    children,
+}) => {
     const isLink = typeof href === 'string';
 
     return (
         <article
-            className={`relative rounded-lg bg-primary-2 text-white dark:bg-sencondary dark:text-primary-1 ${
-                className ?? ''
-            }`}
+            className={`relative rounded-lg ${
+                bgClass ??
+                'bg-primary-2 text-white dark:bg-sencondary dark:text-primary-1'
+            }  ${className ?? ''}`}
         >
             {isLink && (
                 <Link href={href}>

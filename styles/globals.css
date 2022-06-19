@@ -5,6 +5,7 @@
 @import './font.css';
 @import './home.css';
 @import './icon.css';
+@import './post.css';
 
 @layer base {
     html,
