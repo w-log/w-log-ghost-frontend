@@ -19,11 +19,11 @@ export const Header = () => {
         <header className="fixed top-0 left-0 z-20 flex w-full h-20 text-primary-2 dark:text-sencondary bg-white dark:bg-primary-1">
             <Container className="w-100 flex flex-1 px-6 flex-row justify-between items-center">
                 <HeaderTitle />
-                <ul className="inline-flex space-x-4">
+                <ul className="inline-flex space-x-4 items-center">
                     <li>
                         <HeaderLink href="/posts">Posts</HeaderLink>
                     </li>
-                    <li>
+                    <li className="flex items-center">
                         <ToggleTheme />
                     </li>
                 </ul>

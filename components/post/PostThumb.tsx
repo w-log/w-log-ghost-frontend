@@ -1,14 +1,8 @@
-import Image, { ImageProps } from 'next/image';
-
 import { Card } from '@components/Card';
 import { Tag } from '@components/Tag';
 import { Date } from '@components/icons';
 
-const PostImage: React.FC<ImageProps> = (props) => (
-    <div className="post-image overflow-hidden rounded-t-lg mb-6">
-        <Image {...props} layout="fill" />
-    </div>
-);
+import { PostImage } from './PostImage';
 
 export const PostThumbnail = () => (
     <div className="flex px-6 mb-8 sm:mb-16 w-full sm:w-6/12">
