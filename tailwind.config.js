@@ -10,6 +10,17 @@ module.exports = {
             spacing: {
                 20: `4.625rem`,
             },
+            typography: ({ theme }) => ({
+                DEFAULT: {
+                    css: {
+                        '--tw-prose-body': '#0F1521',
+                        '--tw-prose-headings': '#022650',
+                        '--tw-prose-bold': '#022650',
+                        '--tw-prose-invert-body': '#E5E9F2',
+                        '--tw-prose-invert-headings': theme('colors.white'),
+                    },
+                },
+            }),
         },
         screens: {
             sm: '480px',
@@ -29,5 +40,5 @@ module.exports = {
             white: '#fff',
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/typography')],
 };

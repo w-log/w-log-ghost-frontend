@@ -9,7 +9,7 @@ interface HtmlViewerProps {
 
 const HtmlViewer = ({ html, className }: HtmlViewerProps) => (
     <div
-        className={`${className ?? ''}`}
+        className={`prose dark:prose-invert px-4 pb-12 ${className ?? ''}`}
         dangerouslySetInnerHTML={{
             __html: sanitizeHtml(html, {
                 allowedTags: [
