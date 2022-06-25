@@ -1,12 +1,20 @@
 import React from 'react';
 
-export const Container: React.FC<{
-    className?: string;
-    children?: React.ReactNode;
-}> = ({ className, children }) => {
+export const Container = React.forwardRef<
+    HTMLDivElement,
+    {
+        className?: string;
+        children?: React.ReactNode;
+    }
+>(({ className, children }, ref) => {
     return (
-        <div className={`max-w-screen-xl mx-auto w-full ${className ?? ''}`}>
+        <div
+            ref={ref}
+            className={`max-w-screen-xl mx-auto w-full ${className ?? ''}`}
+        >
             {children}
         </div>
     );
-};
+});
+
+Container.displayName = 'Container';

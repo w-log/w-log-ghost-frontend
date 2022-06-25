@@ -17,7 +17,7 @@ module.exports = {
                         '--tw-prose-headings': '#022650',
                         '--tw-prose-bold': '#022650',
                         '--tw-prose-invert-body': '#E5E9F2',
-                        '--tw-prose-invert-headings': theme('colors.white'),
+                        '--tw-prose-invert-headings': '#E5E9F2',
                     },
                 },
             }),
