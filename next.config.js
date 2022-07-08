@@ -2,7 +2,10 @@
 const nextConfig = {
     reactStrictMode: true,
     images: {
-        domains: ['www.prog-ocean.org'],
+        domains: [
+            'www.prog-ocean.org',
+            'static-w-log.s3.ap-northeast-2.amazonaws.com',
+        ],
     },
 };
 
