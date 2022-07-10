@@ -10,7 +10,6 @@ import Layout from '@components/layout';
 
 function WLogApp({ Component, pageProps }: AppProps) {
     const { global } = pageProps;
-    console.log(global);
     return (
         <GlobalContext.Provider value={global?.attributes ?? {}}>
             <Layout>
@@ -24,12 +23,7 @@ WLogApp.getInitialProps = async (ctx: AppContext) => {
     const appProps = await App.getInitialProps(ctx);
     // Fetch global site settings from Strapi
     const globalRes = await fetchAPI('/global', {
-        populate: {
-            favicon: '*',
-            default_seo: {
-                populate: '*',
-            },
-        },
+        populate: '*',
     });
 
     // Pass the data to our page via props
