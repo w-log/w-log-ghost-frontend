@@ -23,7 +23,7 @@ export const PostThumbnail = () => (
                             <Tag>{'태그 2'}</Tag>
                         </ul>
                     </li>
-                    <li className="inline-flex items-center">
+                    <li className="inline-flex font-medium items-center text-xs sm:text-base">
                         <Date className="w-4 h-4 mr-1" />
                         2022.06.19
                     </li>
