@@ -10,6 +10,7 @@ import Layout from '@components/layout';
 
 function WLogApp({ Component, pageProps }: AppProps) {
     const { global } = pageProps;
+
     return (
         <GlobalContext.Provider value={global?.attributes ?? {}}>
             <Layout>
