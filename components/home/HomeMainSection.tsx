@@ -20,7 +20,9 @@ export const HomeMainSection: React.FC<Props> = ({
                 <h2 className="font-bold text-4xl" aria-label={title}>
                     {titleContent}
                 </h2>
-                <p className="text-base font-medium mt-2 mb-7">{description}</p>
+                <p className="text-base sm:text-lg font-medium mt-2 mb-7 ">
+                    {description}
+                </p>
                 <CommonLinks />
             </Container>
         </section>

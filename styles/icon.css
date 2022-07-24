@@ -2,3 +2,10 @@
     @apply w-6;
     @apply h-6;
 }
+
+@media screen(sm) {
+    .w-log-icon {
+        @apply w-8;
+        @apply h-8;
+    }
+}

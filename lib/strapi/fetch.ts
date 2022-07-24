@@ -1,10 +1,16 @@
 import qs from 'qs';
 
 import { getStrapiURL } from './common';
+import { IStrapiParams } from './types';
 
-export async function fetchAPI(
+interface IStrapiResponse<T> {
+    data: T;
+    meta: any;
+}
+
+export async function fetchAPI<T extends unknown>(
     path: string,
-    urlParamsObject = {},
+    urlParamsObject: IStrapiParams<T> = {},
     options = {}
 ) {
     // Merge default and user options
@@ -28,9 +34,12 @@ export async function fetchAPI(
 
     // Handle response
     if (!response.ok) {
-        console.error(response.statusText);
-        throw new Error(`An error occured please try again`);
+        console.log(await response.json());
+        throw new Error(
+            `An error occured please try again : ${response.statusText}`
+        );
     }
-    const data = await response.json();
+
+    const data = (await response.json()) as IStrapiResponse<T>;
     return data;
 }

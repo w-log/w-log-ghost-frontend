@@ -2,17 +2,36 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 
+import {
+    getStaticAboutProps,
+    getStaticGlobalProps,
+} from '@/lib/utils/staticProps';
+
+import { IAbout } from '@/interface/About';
+import { IPost } from '@/interface/Post';
+
+import { mergeStaticProps } from '@/lib/utils';
+import { IStrapiData } from '@/lib/strapi/types';
+
 import { ArrowRight } from '@components/icons';
 import { Container } from '@components/layout/Container';
 
 import { HomeMainSection } from '@components/home/HomeMainSection';
 import { HomeTitleContent } from '@components/home/HomeTitle';
 import { HomeContent } from '@components/home/HomeContent';
-import { HomeImage } from '@components/home/HomeImage';
 import { HomePostCard } from '@components/home/HomePostCard';
 import { HomeWorkExperienceCard } from '@components/home/HomeWorkExperienceCard';
+import { StrapiImage } from '@/lib/strapi/components';
 
-const Home: NextPage = () => {
+const Home: NextPage<{
+    about: IStrapiData<IAbout>;
+    recentPosts: IStrapiData<IPost>[];
+}> = (props) => {
+    const { about, recentPosts } = props;
+    const { main_title, main_description, works, about_me, profile_image } =
+        about.attributes;
+
+    console.log(recentPosts[0].attributes.post_categories);
     return (
         <>
             <Head>
@@ -27,30 +46,24 @@ const Home: NextPage = () => {
                 className={`home-main w-100 flex flex-col px-8 sm:px-12 flex-column justify-between items-center`}
             >
                 <HomeMainSection
-                    title="I am Alive ✌🏼"
-                    titleContent={<HomeTitleContent text="I am Alive ✌🏼" />}
-                    description="안녕하세요 서울에서 프론트 엔지니어로 근무중인 김태웅입니다."
+                    title={main_title}
+                    titleContent={<HomeTitleContent text={main_title} />}
+                    description={main_description}
                 />
+
                 <HomeContent title="Recent Posts">
-                    <HomePostCard
-                        title="Strapi Serverless 구축하기"
-                        description="wlog를 개발과정중에 문득 ssg방식으로 구축할건데
-                            서버가 굳이 필요할까라는 결론을 내리게 되었고
-                            serverless serverless... serverless..."
-                        tags={['태그 1', '태그 2']}
-                        href="asd"
-                        createdAt="2022.06.13"
-                    />
-                    <HomePostCard
-                        title="Strapi Serverless 구축하기"
-                        description="wlog를 개발과정중에 문득 ssg방식으로 구축할건데
-                            서버가 굳이 필요할까라는 결론을 내리게 되었고
-                            serverless serverless... serverless..."
-                        tags={['태그 1', '태그 2']}
-                        href="asd"
-                        createdAt="2022.06.13"
-                    />
-                    <Link href={'/'}>
+                    {recentPosts.map((post, i) => (
+                        <HomePostCard
+                            key={post.attributes.slug}
+                            title={post.attributes.title}
+                            description={post.attributes.description}
+                            tags={post.attributes.post_categories?.data}
+                            href={`/post-view/${post.attributes.slug}`}
+                            createdAt="2022.06.13"
+                        />
+                    ))}
+
+                    <Link href={'/posts'}>
                         <a className="inline-flex font-medium items-center text-primary-2 dark:text-sencondary">
                             {'View More'}
                             <ArrowRight className="ml-0.5 w-4 h-4" />
@@ -58,45 +71,30 @@ const Home: NextPage = () => {
                     </Link>
                 </HomeContent>
                 <HomeContent title="Work Experience">
-                    <HomeWorkExperienceCard
-                        title="Gopizza Future Lab"
-                        role="Front-end Developer"
-                        workDate="2021.10 - current"
-                    />
-                    <HomeWorkExperienceCard
-                        title="Weperson"
-                        role="Front-end Developer"
-                        workDate="2021.01 - 2021.03"
-                    />
-                    <HomeWorkExperienceCard
-                        title="IICOMBINED IT Planning"
-                        role="Web Developer"
-                        workDate="2019.03 - 2020.12"
-                    />
-                    <HomeWorkExperienceCard
-                        title="Studio HEYDEY"
-                        role="Web Developer"
-                        workDate="2017.04 - 2019.03"
-                    />
+                    {works.map((work, i) => (
+                        <HomeWorkExperienceCard
+                            key={i}
+                            name={work.work_name}
+                            position={work.work_position}
+                            joinDate={work.work_join_date}
+                            outDate={work.work_out_date}
+                        />
+                    ))}
                 </HomeContent>
                 <HomeContent title="About Me">
-                    <p className="whitespace-pre-wrap font-medium text-primary-2 dark:text-sencondary">{`I’m currently a 4th year computer science major at CSUF.  My passion is to create beautiful products and experiences using web technologies.
-
-I’m primarily a creative, and I first used code to help elevate the way I express myself.  Now, I use code to develop things on the web that help bring people closer together.
-
-As I start to enter a full-time career in tech, I plan to shift my focus onto building apps and services that help people improve their relationships with tech.
-
-When I’m not doing anything related to coding or designing, I’m spending time with friends and family, trying to survive college (lmao), playing my guitar, or making YouTube videos.`}</p>
+                    <p className="whitespace-pre-wrap font-medium">
+                        {about_me}
+                    </p>
                 </HomeContent>
             </Container>
-            <HomeImage
-                src={
-                    'https://www.prog-ocean.org/wp-content/uploads/2018/07/matt-howard-248418-unsplash_small-1920x900.jpg'
-                }
-                layout="fill"
-            />
+            <StrapiImage image={profile_image} />
         </>
     );
 };
+
+export const getStaticProps = mergeStaticProps(
+    [getStaticGlobalProps, getStaticAboutProps],
+    1
+);
 
 export default Home;

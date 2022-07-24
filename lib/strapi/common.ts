@@ -1,4 +1,4 @@
-import { IMedia } from '@/interface/Media';
+import { IStrapiMedia } from '@/lib/strapi/types';
 
 export const getStrapiURL = (path = '') => {
     return `${
@@ -6,14 +6,14 @@ export const getStrapiURL = (path = '') => {
     }${path}`;
 };
 
-export const isEmptyMedia = (media: any) => {
+export const isEmptyMedia = (media: IStrapiMedia) => {
     return media.data === null;
 };
 
-export const getStrapiMedia = (media: IMedia) => {
+export const getStrapiMedia = (media: IStrapiMedia) => {
     if (isEmptyMedia(media)) return null;
 
-    const { url } = media.data.attributes;
+    const { url } = media.data?.attributes;
     const imageUrl = url.startsWith('/') ? getStrapiURL(url) : url;
     return imageUrl;
 };

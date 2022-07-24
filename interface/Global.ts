@@ -1,4 +1,4 @@
-import { IMedia } from './Media';
+import { IStrapiMedia } from '@/lib/strapi/types';
 
 interface IContact {
     github: string;
@@ -10,7 +10,7 @@ export interface ISeo {
     title: string;
     description: string;
     keyword: string;
-    og_image: IMedia;
+    og_image: IStrapiMedia;
     is_article?: boolean;
 }
 

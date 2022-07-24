@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sun, Moon } from '@components/icons';
+
 type Theme = 'dark' | 'light' | '';
 
 export const ToggleTheme = () => {
@@ -30,7 +31,7 @@ export const ToggleTheme = () => {
 
     return (
         <button
-            className="inline-flex w-6 h-6 text-primary-2 dark:text-sencondary"
+            className="inline-flex text-primary-2 dark:text-sencondary"
             aria-label="change theme"
             onClick={onToggleTheme}
         >
