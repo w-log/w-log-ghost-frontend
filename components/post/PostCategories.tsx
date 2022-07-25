@@ -1,65 +1,53 @@
+import React from 'react';
+
 import { IPostCategory } from '@/interface/Post';
+import { IStrapiData } from '@/lib/strapi/types';
 
 import { Tag } from '@/components/Tag';
+import { Card } from '@/components/Card';
+import { useRouter } from 'next/router';
 
 interface Props {
-    categories: IPostCategory[];
+    currentCategory: string;
+    categories: IStrapiData<IPostCategory>[];
 }
 
-export const PostCategories: React.FC<Props> = () => {
+export const PostCategories: React.FC<Props> = ({
+    currentCategory,
+    categories,
+}) => {
+    const router = useRouter();
+    const handleTagClick = React.useCallback(
+        (slug: string) =>
+            currentCategory !== slug && router.push(`/posts/${slug}`),
+        [currentCategory]
+    );
+
     return (
-        <div className="dark:bg-sencondary dark:text-primary-1 m-6 px-2 py-2 sm:py-4 rounded w-full overflow-auto">
-            <h3 className="font-bold text-sm sm:text-base mb-2 left-0 sticky">
-                {' '}
-                카테고리
+        <Card className="bg-primary-2 text-white dark:bg-sencondary dark:text-primary-1 m-6 p-3 sm:px-6 sm:py-4 w-full overflow-auto">
+            <h3 className="font-bold text-1xl sm:text-2xl mb-3 sm:mb-2 left-0 sticky">
+                주제
             </h3>
-            <ul className="flex -m-2 sm:-m-2 w-full ">
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
-                <li className="m-1 sm:m-2">
-                    <Tag>{'Next.js'}</Tag>
-                </li>
+            <ul className="inline-flex w-auto pr-3 sm:pr-6">
+                {[
+                    { id: 0, attributes: { slug: '', label: 'All' } },
+                    ...categories,
+                ].map(({ id, attributes }) => (
+                    <li key={id} className="my-1 mr-2">
+                        <Tag
+                            onClick={() => handleTagClick(attributes.slug)}
+                            reverse={currentCategory === attributes.slug}
+                            className={
+                                currentCategory === attributes.slug
+                                    ? 'cursor-default'
+                                    : 'cursor-pointer'
+                            }
+                        >
+                            {attributes.label}
+                        </Tag>
+                    </li>
+                ))}
             </ul>
-        </div>
+        </Card>
     );
 };

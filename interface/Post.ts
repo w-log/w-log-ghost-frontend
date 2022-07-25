@@ -13,4 +13,5 @@ export interface IPost {
     slug: string;
     image: IStrapiMedia;
     post_categories: IStrapiListData<IPostCategory>;
+    createdAt: string;
 }

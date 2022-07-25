@@ -48,7 +48,7 @@ const Home: NextPage<{
                 <HomeContent title="Recent Posts">
                     {recentPosts.map((post, i) => (
                         <HomePostCard
-                            key={post.attributes.slug}
+                            key={post.id}
                             title={post.attributes.title}
                             description={post.attributes.description}
                             tags={post.attributes.post_categories?.data}
@@ -81,7 +81,9 @@ const Home: NextPage<{
                     </p>
                 </HomeContent>
             </Container>
-            <StrapiImage image={profile_image} />
+            <Container className="m-0">
+                <StrapiImage image={profile_image} />
+            </Container>
         </>
     );
 };

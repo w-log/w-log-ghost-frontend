@@ -1,9 +1,11 @@
+import { GetStaticPropsContext } from 'next';
 import { fetchAPI } from '@/lib/strapi/fetch';
 
 import { IAbout } from '@/interface/About';
 import { IGlobal } from '@/interface/Global';
 
 import { IStrapiData } from '@/lib/strapi/types';
+import { IPost, IPostCategory } from '@/interface/Post';
 
 export const getStaticGlobalProps = async () => {
     const response = await fetchAPI<IStrapiData<IGlobal>>('/global', {
@@ -13,6 +15,34 @@ export const getStaticGlobalProps = async () => {
     return {
         props: {
             global: response.data,
+        },
+    };
+};
+
+export const getStaticPostListProps = async (ctx: GetStaticPropsContext) => {
+    const currentCategory = ctx.params?.category?.[0] ?? '';
+    const [categoryResponse, postListResponse] = await Promise.all([
+        fetchAPI<IStrapiData<IPostCategory>[]>('/post-categories', {
+            populate: '*',
+        }),
+        fetchAPI<IStrapiData<IPost>>('/posts', {
+            sort: ['createdAt:desc'],
+            populate: '*',
+            filters: currentCategory
+                ? {
+                      post_categories: {
+                          slug: currentCategory,
+                      },
+                  }
+                : {},
+        }),
+    ]);
+
+    return {
+        props: {
+            currentCategory,
+            categories: categoryResponse.data,
+            posts: postListResponse.data,
         },
     };
 };
