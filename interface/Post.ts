@@ -3,6 +3,7 @@ import { IStrapiListData, IStrapiMedia } from '@/lib/strapi/types';
 export interface IPostCategory {
     label: string;
     slug: string;
+    count?: number;
 }
 
 export interface IPost {

@@ -7,7 +7,7 @@ import { IStrapiData } from '@/lib/strapi/types';
 
 export const getStaticGlobalProps = async () => {
     const response = await fetchAPI<IStrapiData<IGlobal>>('/global', {
-        populate: '*',
+        populate: ['*', 'default_seo', 'default_seo.og_image', 'contact'],
     });
 
     return {

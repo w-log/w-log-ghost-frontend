@@ -1,10 +1,12 @@
 import Head from 'next/head';
-import { useGlobalContext } from '@/context/global';
+
 import { getStrapiMedia } from '@/lib/strapi/common';
 import { ISeo } from '@/interface/Global';
 
+import { useGlobalContext } from '@/context/global';
+
 interface Props {
-    seo: ISeo;
+    seo?: ISeo;
 }
 
 const Seo = ({ seo }: Props) => {
@@ -17,10 +19,8 @@ const Seo = ({ seo }: Props) => {
 
     const fullSeo = {
         ...seoWithDefaults,
-        // Add title suffix
-        title: seoWithDefaults
-            ? `${seoWithDefaults.title} | ${app_name}`
-            : app_name,
+        // seo data 전달 시 template render
+        title: seo ? `${seoWithDefaults.title} | ${app_name}` : app_name,
         // Get full image URL
         og_image: getStrapiMedia(seoWithDefaults.og_image),
     };
@@ -45,6 +45,11 @@ const Seo = ({ seo }: Props) => {
                         name="twitter:description"
                         content={fullSeo.description}
                     />
+                </>
+            )}
+            {fullSeo.keyword && (
+                <>
+                    <meta property="keyword" content={fullSeo.keyword} />
                 </>
             )}
             {fullSeo.og_image && (

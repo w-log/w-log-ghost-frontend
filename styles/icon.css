@@ -5,7 +5,7 @@
 
 @media screen(sm) {
     .w-log-icon {
-        @apply w-8;
-        @apply h-8;
+        @apply w-7;
+        @apply h-7;
     }
 }
