@@ -9,9 +9,9 @@ interface IStrapiImageProps {
 }
 
 export const NoImage = () => (
-    <div className="relative w-full pb-[40%] my-12 dark:text-primary-1 font-bold text-2xl">
+    <div className="relative w-full pb-[40%] my-12 border-[1px] rounded overflow-hidden  dark:border-none  font-bold text-2xl">
         <p
-            className="dark:bg-sencondary flex items-center justify-center absolute top-0 h-full w-full overflow-hidden"
+            className="bg-primary-2 text-white dark:text-primary-1 dark:bg-sencondary flex items-center justify-center absolute top-0 h-full w-full "
             style={{ height: '100%' }}
         >
             No Image
