@@ -1,22 +1,21 @@
+import React from 'react';
 import useClickAccessHandler from '@/hooks/useClickAccessHandler';
 
 interface Props extends React.HTMLProps<HTMLSpanElement> {
     reverse?: boolean;
     children?: React.ReactNode;
-    onAccessClick: () => void;
+    onClick?: () => void;
 }
 
 export const Tag: React.FC<Props> = ({
     reverse,
     children,
     className,
-    onAccessClick,
+    onClick,
     ...otherProps
 }) => {
-    const events = useClickAccessHandler(
-        () => onAccessClick && onAccessClick(),
-        false
-    );
+    const events = useClickAccessHandler(onClick, false);
+
     return (
         <span
             {...otherProps}

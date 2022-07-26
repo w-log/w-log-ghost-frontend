@@ -1,5 +1,6 @@
 import React from 'react';
 import NextImage from 'next/image';
+import imageLoader from '@/lib/utils/imageLoader';
 
 import { IStrapiMedia } from './types';
 import { getStrapiMedia } from './common';
@@ -33,8 +34,11 @@ export const StrapiImage: React.FC<IStrapiImageProps> = ({ image }) => {
             width={width}
             height={height}
             objectFit="contain"
+            loader={imageLoader}
             src={getStrapiMedia(image) ?? ''}
             alt={alternativeText ?? ''}
+            unoptimized={true}
+            quality={100}
         />
     );
 };

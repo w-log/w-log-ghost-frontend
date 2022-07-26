@@ -1,11 +1,25 @@
 import { NextPage } from 'next';
+import { useRouter } from 'next/router';
+import ErrorPage from 'next/error';
 
+import { fetchAPI } from '@/lib/strapi/fetch';
 import { Container } from '@components/layout/Container';
 import { PostImage } from '@components/post/PostImage';
 
 import HTMLViewer from '@components/HtmlViewer';
+import { IPost } from '@/interface/Post';
+import { IStrapiData } from '@/lib/strapi/types';
+import { mergeStaticProps } from '@/lib/utils';
+import {
+    getStaticGlobalProps,
+    getStaticPostViewProps,
+} from '@/lib/utils/staticProps';
 
-const Post: NextPage = () => {
+const Post: NextPage = ({ post }: any) => {
+    const router = useRouter();
+    if (!router.isFallback && !post?.slug) {
+        return <ErrorPage statusCode={404} />;
+    }
     return (
         <Container>
             <PostImage
@@ -55,5 +69,25 @@ const Post: NextPage = () => {
         </Container>
     );
 };
+
+export const getStaticPaths = async () => {
+    const postsResponse = await fetchAPI<IStrapiData<IPost>[]>('/posts', {
+        populate: '*',
+    });
+
+    return {
+        paths: postsResponse.data.map(({ attributes }) => ({
+            params: {
+                slug: attributes.slug,
+            },
+        })),
+        fallback: false,
+    };
+};
+
+export const getStaticProps = mergeStaticProps(
+    [getStaticGlobalProps, getStaticPostViewProps],
+    1
+);
 
 export default Post;

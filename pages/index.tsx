@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
+import dayjs from 'dayjs';
 
 import {
     getStaticAboutProps,
@@ -53,7 +53,9 @@ const Home: NextPage<{
                             description={post.attributes.description}
                             tags={post.attributes.post_categories?.data}
                             href={`/post-view/${post.attributes.slug}`}
-                            createdAt="2022.06.13"
+                            createdAt={dayjs(
+                                post.attributes.createdAt ?? ''
+                            ).format('YYYY.MM.DD')}
                         />
                     ))}
 

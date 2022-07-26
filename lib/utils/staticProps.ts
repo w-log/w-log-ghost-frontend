@@ -19,6 +19,29 @@ export const getStaticGlobalProps = async () => {
     };
 };
 
+export const getStaticPostViewProps = async (ctx: GetStaticPropsContext) => {
+    const slug = ctx.params?.slug ?? '';
+    const postViewResponse = await fetchAPI<IStrapiData<IPost>>('/posts', {
+        sort: ['createdAt:desc'],
+        populate: '*',
+        filters: {
+            slug,
+        },
+    });
+
+    if (!postViewResponse?.data?.id) {
+        return {
+            notFound: true,
+        };
+    }
+
+    return {
+        props: {
+            post: postViewResponse.data,
+        },
+    };
+};
+
 export const getStaticPostListProps = async (ctx: GetStaticPropsContext) => {
     const currentCategory = ctx.params?.category?.[0] ?? '';
     const [categoryResponse, postListResponse] = await Promise.all([
