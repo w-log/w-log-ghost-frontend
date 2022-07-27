@@ -1,7 +1,6 @@
-rm -rf node_modules/.cache
+# rm -rf node_modules/.cache
 
 yarn build
-
 
 touch out/.nojekyll
 
