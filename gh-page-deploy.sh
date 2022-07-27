@@ -2,7 +2,8 @@ rm -rf node_modules/.cache
 
 yarn build
 
-touch ./out/.nokekyll
+
+touch out/.nojekyll
 
 
 now=`date +%D-%T`
