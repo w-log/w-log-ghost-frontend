@@ -7,6 +7,10 @@ import { IGlobal } from '@/interface/Global';
 import { IStrapiData } from '@/lib/strapi/types';
 import { IPost, IPostCategory } from '@/interface/Post';
 
+const md = require('markdown-it')({
+    html: true,
+});
+
 export const getStaticGlobalProps = async () => {
     const response = await fetchAPI<IStrapiData<IGlobal>>('/global', {
         populate: ['*', 'default_seo', 'default_seo.og_image', 'contact'],
@@ -21,7 +25,7 @@ export const getStaticGlobalProps = async () => {
 
 export const getStaticPostViewProps = async (ctx: GetStaticPropsContext) => {
     const slug = ctx.params?.slug ?? '';
-    const postViewResponse = await fetchAPI<IStrapiData<IPost>>('/posts', {
+    const postViewResponse = await fetchAPI<IStrapiData<IPost>[]>('/posts', {
         sort: ['createdAt:desc'],
         populate: '*',
         filters: {
@@ -29,15 +33,20 @@ export const getStaticPostViewProps = async (ctx: GetStaticPropsContext) => {
         },
     });
 
-    if (!postViewResponse?.data?.id) {
+    const [post] = postViewResponse?.data ?? [];
+
+    if (!post) {
         return {
             notFound: true,
         };
     }
 
+    const contentHtml = md.render(post.attributes?.content ?? '');
+
     return {
         props: {
-            post: postViewResponse.data,
+            post: post,
+            contentHtml,
         },
     };
 };

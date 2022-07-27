@@ -24,7 +24,7 @@ export const PostCategories: React.FC<Props> = ({
     );
 
     return (
-        <Card className="bg-primary-2 text-white dark:bg-sencondary dark:text-primary-1 m-6 p-3 sm:px-6 sm:py-4 w-full overflow-auto">
+        <Card className="bg-primary-2 text-white dark:bg-secondary dark:text-primary-1 m-6 p-3 sm:px-6 sm:py-4 w-full overflow-auto">
             <h3 className="font-bold text-1xl sm:text-2xl mb-3 sm:mb-2 left-0 sticky">
                 주제
             </h3>

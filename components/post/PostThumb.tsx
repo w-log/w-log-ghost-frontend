@@ -14,11 +14,12 @@ interface Props {
 export const PostThumbnail: React.FC<Props> = ({ post }) => {
     return (
         <div className="flex px-6 mb-8 sm:mb-16 w-full sm:w-6/12">
-            <Card className="flex-1">
+            <Card className="flex-1" href={`/post-view/${post.slug}`}>
                 <PostImage
                     src={
                         'https://www.prog-ocean.org/wp-content/uploads/2018/07/matt-howard-248418-unsplash_small-1920x900.jpg'
                     }
+                    loading={'lazy'}
                 />
                 <div className="px-3 pb-3 sm:px-6 sm:pb-6">
                     <h2 className="text-1xl sm:text-2xl font-bold mb-3">

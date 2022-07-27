@@ -32,6 +32,10 @@ body {
     clear: both;
 }
 
+#error-template {
+    min-height: calc(100vh - theme('spacing.20'));
+}
+
 .fp-watermark {
     display: none;
 }

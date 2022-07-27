@@ -21,7 +21,7 @@ export const Card: React.FC<Props> = ({
         <article
             className={`relative rounded-lg ${
                 bgClass ??
-                'bg-primary-2 text-white dark:bg-sencondary dark:text-primary-1'
+                'bg-primary-2 text-white dark:bg-secondary dark:text-primary-1'
             }  ${className ?? ''}`}
         >
             {isLink && (

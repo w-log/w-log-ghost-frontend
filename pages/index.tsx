@@ -60,7 +60,7 @@ const Home: NextPage<{
                     ))}
 
                     <Link href={'/posts'}>
-                        <a className="inline-flex font-medium items-center text-primary-2 dark:text-sencondary">
+                        <a className="inline-flex font-medium items-center text-primary-2 dark:text-secondary">
                             {'View More'}
                             <ArrowRight className="ml-0.5 w-4 h-4" />
                         </a>

@@ -5,7 +5,7 @@ export const HeaderTitle = () => {
     const { app_name } = useGlobalContext();
 
     return (
-        <h1 className="text-3xl font-dm-sans-bold text-primary-2 dark:text-sencondary">
+        <h1 className="text-3xl font-dm-sans-bold text-primary-2 dark:text-secondary">
             <Link href={'/'}>{app_name}</Link>
         </h1>
     );

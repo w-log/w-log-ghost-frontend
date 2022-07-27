@@ -31,7 +31,7 @@ export const ToggleTheme = () => {
 
     return (
         <button
-            className="inline-flex text-primary-2 dark:text-sencondary"
+            className="inline-flex text-primary-2 dark:text-secondary"
             aria-label="change theme"
             onClick={onToggleTheme}
         >

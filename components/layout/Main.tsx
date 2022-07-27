@@ -7,7 +7,7 @@ interface Props {
 
 export const Main: React.FC<Props> = ({ className, children }) => {
     return (
-        <main className="text-primary-2 dark:text-sencondary bg-white dark:bg-primary-1 mt-20">
+        <main className="text-primary-2 dark:text-secondary bg-white dark:bg-primary-1 mt-20">
             {children}
         </main>
     );
