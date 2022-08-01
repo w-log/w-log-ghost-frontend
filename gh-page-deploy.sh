@@ -4,6 +4,7 @@ yarn build
 
 touch out/.nojekyll
 
+mv ./out ./docs
 
 now=`date +%D-%T`
 commit_message="gh-page-deploy: $now"
