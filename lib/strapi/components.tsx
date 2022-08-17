@@ -21,7 +21,7 @@ export const NoImage = () => (
 );
 
 export const StrapiImage: React.FC<IStrapiImageProps> = ({ image }) => {
-    const { alternativeText, width, height } = image.data?.attributes ?? {};
+    const { alternativeText, width, height } = image?.data?.attributes ?? {};
     const src = getStrapiMedia(image) ?? '';
 
     if (!src) {

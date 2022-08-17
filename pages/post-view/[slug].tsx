@@ -1,11 +1,7 @@
 import { NextPage } from 'next';
-import { useRouter } from 'next/router';
 
 import { fetchAPI } from '@/lib/strapi/fetch';
-import { Container } from '@components/layout/Container';
-import { PostImage } from '@components/post/PostImage';
-
-import HTMLViewer from '@components/HtmlViewer';
+import { getStrapiMedia } from '@/lib/strapi/common';
 import { IPost } from '@/interface/Post';
 import { IStrapiData } from '@/lib/strapi/types';
 import { mergeStaticProps } from '@/lib/utils';
@@ -14,14 +10,19 @@ import {
     getStaticPostViewProps,
 } from '@/lib/utils/staticProps';
 
+import HTMLViewer from '@components/HtmlViewer';
+import PostLine from '@/components/post/PostLine';
+import PostDescription from '@/components/post/PostDescription';
+import { Container } from '@components/layout/Container';
+import { PostImage } from '@components/post/PostImage';
+
 const Post: NextPage = ({ post, contentHtml }: any) => {
     return (
         <Container>
-            <PostImage
-                src={
-                    'https://www.prog-ocean.org/wp-content/uploads/2018/07/matt-howard-248418-unsplash_small-1920x900.jpg'
-                }
-            />
+            <PostImage src={getStrapiMedia(post.image) ?? ''} />
+
+            <PostDescription text={post.description} />
+            <PostLine />
             <HTMLViewer html={contentHtml ?? ''} />
         </Container>
     );

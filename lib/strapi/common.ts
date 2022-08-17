@@ -10,8 +10,8 @@ export const isEmptyMedia = (media: IStrapiMedia) => {
     return media.data === null;
 };
 
-export const getStrapiMedia = (media: IStrapiMedia) => {
-    if (isEmptyMedia(media)) return null;
+export const getStrapiMedia = (media?: IStrapiMedia) => {
+    if (!media || isEmptyMedia(media)) return null;
 
     const { url } = media.data?.attributes;
     const imageUrl = url.startsWith('/') ? getStrapiURL(url) : url;

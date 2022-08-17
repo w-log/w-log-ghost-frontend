@@ -45,7 +45,7 @@ export const getStaticPostViewProps = async (ctx: GetStaticPropsContext) => {
 
     return {
         props: {
-            post: post,
+            post: post?.attributes,
             contentHtml,
         },
     };
