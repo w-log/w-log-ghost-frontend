@@ -13,7 +13,7 @@ interface Props {
 }
 export const PostThumbnail: React.FC<Props> = ({ post }) => {
     return (
-        <div className="flex px-6 mb-8 sm:mb-16 w-full sm:w-6/12">
+        <div className="flex px-3 mb-8 sm:mb-12 w-full sm:w-6/12">
             <Card className="flex-1" href={`/post-view/${post.slug}`}>
                 <PostImage
                     src={

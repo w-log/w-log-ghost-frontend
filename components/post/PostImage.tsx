@@ -6,7 +6,7 @@ export const PostImage: React.FC<ImageProps> = (props) =>
     !props.src ? (
         <NoImage />
     ) : (
-        <div className="post-image overflow-hidden rounded-t-lg mb-6">
+        <div className="post-image overflow-hidden rounded-none lg:rounded mb-6">
             <Image
                 {...props}
                 layout="fill"

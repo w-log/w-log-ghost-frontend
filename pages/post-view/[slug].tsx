@@ -18,7 +18,7 @@ import { PostImage } from '@components/post/PostImage';
 
 const Post: NextPage = ({ post, contentHtml }: any) => {
     return (
-        <Container>
+        <Container className="max-w-screen-lg">
             <PostImage src={getStrapiMedia(post.image) ?? ''} />
 
             <PostDescription text={post.description} />

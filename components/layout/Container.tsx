@@ -10,7 +10,7 @@ export const Container = React.forwardRef<
     return (
         <div
             ref={ref}
-            className={`max-w-screen-xl mx-auto w-full ${className ?? ''}`}
+            className={`max-w-screen-lg mx-auto w-full ${className ?? ''}`}
         >
             {children}
         </div>
