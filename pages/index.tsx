@@ -32,7 +32,6 @@ const Home: NextPage<{
     const { main_title, main_description, works, about_me, profile_image } =
         about.attributes;
 
-    console.log(recentPosts[0].attributes.post_categories);
     return (
         <>
             <Seo />
