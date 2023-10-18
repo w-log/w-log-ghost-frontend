@@ -8,7 +8,7 @@ interface Props {
     title: string;
     description: string;
     href: string;
-    tags: IStrapiData<IPostCategory>[];
+    // tags: IStrapiData<IPostCategory>[];
     createdAt: string;
 }
 
@@ -16,7 +16,7 @@ export const HomePostCard: React.FC<Props> = ({
     title,
     description,
     href,
-    tags,
+    // tags,
     createdAt,
 }) => (
     <Card className="flex-1 p-3.5 sm:p-4.5" href={href}>
@@ -29,11 +29,9 @@ export const HomePostCard: React.FC<Props> = ({
         <ul className="flex justify-between items-center">
             <li>
                 <ul className="inline-flex space-x-2 text-xs sm:text-base">
-                    {tags.map((category, i) => (
-                        <li key={i}>
-                            <Tag>{category.attributes.label}</Tag>
-                        </li>
-                    ))}
+                    <li>
+                        <Tag>{'mockup tag'}</Tag>
+                    </li>
                 </ul>
             </li>
             <li>{createdAt}</li>

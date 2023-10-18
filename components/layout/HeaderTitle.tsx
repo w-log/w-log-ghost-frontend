@@ -6,7 +6,7 @@ export const HeaderTitle = () => {
 
     return (
         <h1 className="text-3xl font-dm-sans-bold text-primary-2 dark:text-secondary">
-            <Link href={'/'}>{app_name}</Link>
+            <Link href={'/'}>{'asd'}</Link>
         </h1>
     );
 };

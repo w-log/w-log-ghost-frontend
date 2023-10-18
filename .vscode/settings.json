@@ -10,7 +10,15 @@
         "**/node_modules/**",
         "**/.hg/**"
     ],
+
     "tailwindCSS.includeLanguages": {
         "plaintext": "html"
+    },
+    // prettier 규칙에 맞게 포맷팅 시켜줌
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    // eslint 규칙에 맞게 변환시킴
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
     }
 }

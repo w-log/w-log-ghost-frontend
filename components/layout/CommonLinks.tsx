@@ -8,7 +8,7 @@ const CommonLinks = () => {
 
     return (
         <ul className="inline-flex space-x-4">
-            {contact.email && (
+            {contact?.email && (
                 <li className="inline-flex justify-center items-center">
                     <Link href={`mailto:${contact.email}`}>
                         <a target="_blank">
@@ -17,7 +17,7 @@ const CommonLinks = () => {
                     </Link>
                 </li>
             )}
-            {contact.github && (
+            {contact?.github && (
                 <li className="inline-flex justify-center items-center">
                     <Link href={contact.github}>
                         <a target="_blank">
@@ -26,7 +26,7 @@ const CommonLinks = () => {
                     </Link>
                 </li>
             )}
-            {contact.instagram && (
+            {contact?.instagram && (
                 <li className="inline-flex justify-center items-center">
                     <Link href={'https://instagram.com'} target="_blank">
                         <a target="_blank">

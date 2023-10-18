@@ -5,6 +5,6 @@ const NotFound = () => {
     return <Error statusCode={404} />;
 };
 
-export const getStaticProps = getStaticGlobalProps;
+// export const getStaticProps = getStaticGlobalProps;
 
 export default NotFound;

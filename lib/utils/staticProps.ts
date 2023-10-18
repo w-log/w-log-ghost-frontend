@@ -80,24 +80,24 @@ export const getStaticPostListProps = async (ctx: GetStaticPropsContext) => {
 };
 
 export const getStaticAboutProps = async () => {
-    const [aboutRes, recentPostRes] = await Promise.all([
-        fetchAPI<IStrapiData<IAbout>>('/about', {
-            populate: '*',
-        }),
-        fetchAPI<IStrapiData<any>>('/posts', {
-            sort: ['createdAt:desc'],
-            populate: '*',
-            pagination: {
-                start: 0,
-                limit: 2,
-            },
-        }),
+    const [] = await Promise.all([
+        // fetchAPI<IStrapiData<IAbout>>('/about', {
+        //     populate: '*',
+        // }),
+        // fetchAPI<IStrapiData<any>>('/posts', {
+        //     sort: ['createdAt:desc'],
+        //     populate: '*',
+        //     pagination: {
+        //         start: 0,
+        //         limit: 2,
+        //     },
+        // }),
     ]);
 
     return {
         props: {
-            about: aboutRes.data,
-            recentPosts: recentPostRes.data,
+            about: [],
+            recentPosts: [],
         },
     };
 };
